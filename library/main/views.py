@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Book, Order
-from .serializers import BookSerializer
+from .serializers import BookSerializer, OrderSerializer
 
 
 @api_view(['GET'])
@@ -35,10 +35,10 @@ class BookUpdateView(UpdateAPIView):
 
 
 class BookDeleteView(DestroyAPIView):
-    queryset = Book.objects.all()
+    queryset = Order.objects.all()
     serializer_class = BookSerializer
 
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
-    serializer_class = BookSerializer
+    serializer_class = OrderSerializer
